@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dbf2excel"
+version = "0.1.0"
+description = "Convert all DBF files in the current directory to Excel files."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Codex" }
+]
+dependencies = [
+  "dbfread>=2.0.7,<3.0.0",
+  "pandas>=2.2.0,<3.0.0",
+  "openpyxl>=3.1.0,<4.0.0",
+]
+
+[project.scripts]
+dbf2excel = "dbf2excel.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pyinstaller]
+name = "dbf2excel"
+onefile = true
+console = true
+
